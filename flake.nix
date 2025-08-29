@@ -17,7 +17,10 @@
       templates = {
         zig-project = {
           description = "New Zig project with zig-common dev environment";
-          path = ./template;
+          path = nixpkgs.lib.cleanSourceWith {
+            filter = name: type: true;
+            src = ./template;
+          };
         };
       };
     in
